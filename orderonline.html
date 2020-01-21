@@ -1,0 +1,186 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="stylesheetone.css" />
+    <meta charset="utf-8" />
+    <title>Order Online</title>
+    <style>
+        .btn-group {
+            position: center;
+            display: inline-block;
+            margin: auto;
+            width: 60%;
+        }
+
+
+        #button1 {
+            width: 40%;
+            background-color: #3d6645;
+            height: 100px;
+            border-radius: 1000px;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            border: 2px solid #3d6645;
+            padding: 14px 20px;
+            cursor: pointer;
+        }
+
+        #button2 {
+            width: 60%;
+            background-color: #3d6645;
+            height: 100px;
+            border-radius: 100px;
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            border: 2px solid #3d6645;
+            padding: 12px 20px;
+            cursor: pointer;
+        }
+
+        button:active {
+            border: #ff0000;
+        }
+
+        #button1 {
+            width: 200px;
+            height: 80px;
+        }
+
+        #button2 {
+            width: 200px;
+            height: 80px;
+        }
+
+        #button3 {
+            padding: 1px;
+            width: 150px;
+            height: 40px;
+            background: #3d6645;
+            border-radius: 100px;
+            color: white;
+            border: 2px solid #3d6645;
+            font-weight: 400;
+        }
+
+        .wrapper {
+            text-align: center;
+        }
+
+        input {
+            width: 500px;
+            height: 50px;
+        }
+
+        select {
+            width: 500px;
+            height: 50px;
+        }
+
+        #map {
+            text-align: center;
+        }
+
+        p {
+            font-size: 14px;
+            font-weight: 900;
+        }
+
+        #myDIV {
+            text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="heading">
+        <div class="focus-in-expand">
+            <a style="color: white; text-decoration: none; " href="index.html">Home</a>
+            <a style="color: white; text-decoration: none; " href="locations.html">Menu</a>
+            <a style="color: white; text-decoration: none; " href="orderonline.html">OrderOnline</a>
+            <a style="color: white; text-decoration: none; " href="about.html">ABOUT</a>
+        </div>
+    </div>
+
+    <h2>ORDER ONLINE</h2>
+
+    <div class="wrapper">
+        <div class="buttons">
+            <button onclick="myFunction()" id="button1">Delivery</button>
+            <button onclick="otherFunction()" id="button2">Carryout</button>
+        </div>
+    </div>
+
+    <div style="display:none;" id="myDIV">
+        <br />
+        <form name="myForm" action="js"
+              onsubmit="return validateForm()" method="get">
+            <label for="uname"><b>Address Type</b></label>
+            <select>
+                <option value="apt">Apartment</option>
+                <option value="house">House</option>
+                <option value="Business">Business</option>
+                <option value="other">Other</option>
+            </select><br />
+            <br />
+            <label for="uname"><b><span style="color: red;">*</span>Street Name</b></label>
+            <input type="text" placeholder="Enter Username" required><br />
+            <br />
+            <label for="uname"><b>&nbsp;&nbsp;<span style="color: red;">*</span>Suite/Apt#</b></label>
+            <input type="text" placeholder="Enter Password" required><br />
+            <br />
+            <label for="uname"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: red;">*</span>City</b></label>
+            <input type="text" placeholder="Enter Password" required><br />
+            <br />
+            <label for="uname"><b>&nbsp;<span style="color: red;">*</span>Postal Code</b></label>
+            <input type="text" placeholder="Enter Password" required><br />
+            <br />
+
+            <button style="padding: 1px; margin: 3px;" id="button3" type="submit">Submit</button>
+
+        </form>
+    </div>
+    <div style="display:none;" id="map">
+        <p>Find your location</p>
+        <iframe id="map" src="https://www.google.com/maps/d/u/0/embed?mid=1CLq2sPawLDwj85jypnLck57DVfkX_Lrd" width="840" height="420"></iframe>
+    </div>
+
+    <script>
+        function myFunction() {
+            var y = document.getElementById("map");
+            var x = document.getElementById("myDIV");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+                y.style.display = "none";
+            } else {
+                x.style.display = "none";
+            }
+
+        }
+        function otherFunction() {
+            var y = document.getElementById("map");
+            var x = document.getElementById("myDIV");
+            if (y.style.display === "none") {
+                y.style.display = "block";
+                x.style.display = "none";
+            } else {
+                y.style.display = "none";
+            }
+        }
+        function validateForm() {
+            var x = document.forms["myForm"]["fname"].value;
+            if (x == null || x == "") {
+                alert("Name must be filled out");
+                document.getByTagName("label").style.backgroundColor = red;
+                return false;
+            }
+        }
+    </script>
+
+
+</body>
+</html>
